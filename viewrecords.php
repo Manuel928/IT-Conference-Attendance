@@ -20,9 +20,8 @@ $results = $crud->getAttendees();
     <tbody>
         <?php while ($r = $results->fetch(PDO::FETCH_ASSOC)) {
         ?>
-
             <!-- Modal -->
-            <div class="modal fade" id="deleteConfirm" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
+            <div class="modal fade" id="deleteConfirm_<?php echo $r['attendee_id']; ?>" tabindex="-1" aria-labelledby="deleteConfirmLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -45,23 +44,23 @@ $results = $crud->getAttendees();
                 </div>
             </div>
 
-
             <tr>
                 <td><?php echo $r['attendee_id']; ?></td>
                 <td><?php echo $r['firstname']; ?></td>
                 <td><?php echo $r['lastname']; ?></td>
                 <td><?php echo $r['name']; ?></td>
                 <td>
-                    <div class="d-flex flex-column justify-content-around mb-2 mt-2 row gy-3 mx-1">
+                    <div class="d-flex flex-column justify-content-around mb-1 mt-1 row gy-3 mx-1">
                         <a href="view.php?id=<?php echo $r['attendee_id']; ?>" class="btn btn-dark p-2">View</a>
                         <a href="edit.php?id=<?php echo $r['attendee_id']; ?>" class="btn btn-warning p-2">Edit</a>
-                        <a href="delete.php?id=<?php echo $r['attendee_id']; ?>" class="btn btn-danger p-2" data-bs-toggle="modal" data-bs-target="#deleteConfirm">
+                        <a href="delete.php?id=<?php echo $r['attendee_id']; ?>" class="btn btn-danger p-2" data-bs-toggle="modal" data-bs-target="#deleteConfirm_<?php echo $r['attendee_id']; ?>">
                             Delete
                         </a>
                     </div>
                 </td>
             </tr>
         <?php } ?>
+
     </tbody>
 </table>
 
