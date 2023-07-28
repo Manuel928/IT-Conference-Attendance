@@ -1,24 +1,24 @@
 <?php
 
 // Remote Connection
-// $host = "sql9.freesqldatabase.com";
-// $db = "sql9635819";
-// $user = "sql9635819";
-// $password = "INWYKc1Pb9";
-// $charset = "utf8mb4";
+$host = "sql9.freesqldatabase.com";
+$db = "sql9635819";
+$user = "sql9635819";
+$password = "INWYKc1Pb9";
+$charset = "utf8mb4";
 
-// $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
 
 // Development Connection
 
-$host = "localhost";
-$db = "attendants_db";
-$user = "root";
-$password = "";
-$charset = "utf8mb4";
+// $host = "localhost";
+// $db = "attendants_db";
+// $user = "root";
+// $password = "";
+// $charset = "utf8mb4";
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+// $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
 try {
     $pdo = new PDO($dsn, $user, $password);
