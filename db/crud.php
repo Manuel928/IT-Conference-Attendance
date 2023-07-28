@@ -12,7 +12,7 @@ class crud
     public function insertAttendees($fname, $lname, $dob, $email, $contactNum, $speciality)
     {
         try {
-            $sql = "INSERT INTO attendee (firstname, lastname, dateOfBirth, email, contactNumber, speciality_id) VALUES(:fname,:lname,:dob,:email,:contactNum,:speciality_id)";
+            $sql = "INSERT INTO attendees (firstname, lastname, dateOfBirth, email, contactNumber, speciality_id) VALUES(:fname,:lname,:dob,:email,:contactNum,:speciality_id)";
             $stmt = $this->db->prepare($sql);
 
             $stmt->bindparam(':fname', $fname);
@@ -32,7 +32,7 @@ class crud
     public function editAttendee($id, $fname, $lname, $dob, $email, $contactNum, $speciality)
     {
         try {
-            $sql = "UPDATE `attendee` SET `firstname`=:fname, `lastname`=:lname, `dateOfBirth`=:dob, `email`=:email, `contactNumber`=:contactNum, `speciality_id`=:speciality WHERE attendee_id = :id";
+            $sql = "UPDATE `attendees` SET `firstname`=:fname, `lastname`=:lname, `dateOfBirth`=:dob, `email`=:email, `contactNumber`=:contactNum, `speciality_id`=:speciality WHERE attendee_id = :id";
             $stmt = $this->db->prepare($sql);
 
             $stmt->bindparam(':id', $id);
@@ -54,7 +54,7 @@ class crud
     public function deleteNote($id)
     {
         try {
-            $sql = "DELETE FROM `attendee` WHERE attendee_id = :id";
+            $sql = "DELETE FROM `attendees` WHERE attendee_id = :id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam(':id', $id);
             $stmt->execute();
@@ -68,7 +68,7 @@ class crud
     public function getAttendees()
     {
         try {
-            $sql = "SELECT * FROM `attendee` a INNER JOIN specialities s ON a.speciality_id = s.speciality_id ORDER BY a.speciality_id ASC;";
+            $sql = "SELECT * FROM `attendees` a INNER JOIN speciality s ON a.speciality_id = s.speciality_id ORDER BY a.speciality_id ASC;";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $err) {
@@ -78,7 +78,7 @@ class crud
     public function getAttendeeDetails($id)
     {
         try {
-            $sql = "SELECT * FROM `attendee` a INNER JOIN specialities s ON a.speciality_id = s.speciality_id WHERE attendee_id = :id";
+            $sql = "SELECT * FROM `attendees` a INNER JOIN speciality s ON a.speciality_id = s.speciality_id WHERE attendee_id = :id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam(':id', $id);
             $stmt->execute();
@@ -91,7 +91,7 @@ class crud
     public function getSpecialities()
     {
         try {
-            $sql = "SELECT * FROM specialities;";
+            $sql = "SELECT * FROM speciality;";
             $result = $this->db->query($sql);
             return $result;
         } catch (PDOException $err) {
