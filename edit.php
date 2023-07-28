@@ -52,6 +52,7 @@ if (!isset($_GET['id'])) {
         <div id="contactHelp" class="form-text">We'll never share your contact number with anyone else.</div>
         <br>
         <div class="d-grid gap-2 col-6 mx-auto" id="liveAlertPlaceholder"></div>
+        <a href="viewrecords.php" class="btn btn-default">Back to List</a>
         <button type="submit" name="submit" class="btn btn-success btn-block" id="liveAlertBtn">Save Changes</button>
         <!-- <div id="liveAlertPlaceholder"></div>
         <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button> -->
